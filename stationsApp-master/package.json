@@ -1,0 +1,24 @@
+{
+  "name": "angular_test",
+  "version": "1.0.0",
+  "description": "test voor in de klas",
+  "main": "index.html",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BerendWeij/md_sct_3_2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "test",
+    "angular",
+    "md2"
+  ],
+  "author": "Berend Weij",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.5.5",
+    "angular-animate": "^1.5.6"
+  }
+}

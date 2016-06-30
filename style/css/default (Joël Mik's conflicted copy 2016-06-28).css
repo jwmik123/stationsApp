@@ -1,0 +1,121 @@
+input, .stationsList-row {
+  width:400px;
+  padding:5px;
+  box-sizing: border-box;
+}
+
+.maps-widget {
+  float: right;
+  width: 50%;
+  height: 100%;
+}
+
+.angular-google-map-container { height: 100%;
+width: 100%; position: absolute; top: 0; left: 0; z-index: -999;}
+
+.stationsList {
+
+  float: left;
+  overflow: scroll;
+  height: 100vh;
+  overflow-x: hidden;
+
+}
+
+.stationsList-row {
+  cursor: hand;
+  color: #f9bc00;
+  background: #0062cd;
+  border-bottom: 1px dashed white;
+  width: 250px;
+  padding-left: 20px;
+}
+
+@media screen and (max-width: 480px) {
+  .stationsList-row {
+    width: 180px;
+    padding-left: 5px;
+
+  }
+}
+
+.stationsList-row.ng-leave.ng-leave-active,
+.stationsList-row.ng-move,
+.stationsList-row.ng-enter {
+  opacity:0;
+  max-height:0;
+}
+
+.stationsList-row.ng-leave,
+.stationsList-row.ng-move.ng-move-active,
+.stationsList-row.ng-enter.ng-enter-active {
+  opacity:1;
+  max-height:30px;
+}
+
+.stationsList-row.active {
+  color:orange;
+  margin-left: 10px;
+}
+
+.newstation {
+  margin:10px 0px;
+  border:1px solid black;
+  padding: 5px;
+}
+
+.newstation-submit {
+  padding:5px;
+  background: black;
+  color: white;
+  margin: 5px 0px;
+}
+
+.button {
+  cursor: pointer;
+}
+
+#searchbar{
+  background-color: #0062cd;
+  height: 80px;
+}
+#searchinput{
+  margin-top: 20px;
+}
+body {
+  font-family: 'Roboto Condensed', sans-serif;
+  overflow-y: hidden;
+  margin: 0px;
+
+}
+
+.stationDetails {
+  width: 500px;
+  height:100px;
+  border:1px solid black;
+  padding:5px;
+}
+
+.stationDetails.ng-enter,
+.stationDetails.ng-leave.ng-leave-active {
+  opacity:0;
+  -ms-transform: scale(0.95); /* IE 9 */
+  -webkit-transform: scale(0.95); /* Safari */
+  transform: scale(0.95);
+}
+
+.stationDetails.ng-leave,
+.stationDetails.ng-enter.ng-enter-active {
+  opacity:1;
+  -ms-transform: scale(1); /* IE 9 */
+  -webkit-transform: scale(1); /* Safari */
+  transform: scale(1);
+}
+
+.animatedCSS {
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -ms-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}

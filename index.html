@@ -1,0 +1,63 @@
+  <!DOCTYPE html>
+<!-- ng-app is een 'directive'. Directives vertellen Angular dat je een bepaald gedrag wilt toevoegen
+ met ng-app vertellen we welke 'app' dit is en zo koppelen we alle instellingen van md2App
+ -->
+<html ng-app="md2App">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, target-densitydpi=device-dpi"/>
+        <title>trein app</title>
+        <link rel="stylesheet" href="style/css/default.css">
+        <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+        <!-- met de ng-controller directive koppelen we een container aan een controller
+    met een controller geven we de 'view' toegang tot de 'model'
+    -->
+        <div class="stationsApp" ng-controller="StationController as stations">
+
+            <div class="maps-widget">
+              <ui-gmap-google-map center='stations.map.center' zoom='stations.map.zoom'></ui-gmap-google-map>
+            </div>
+
+            <!--SORRY VOOR DE CENTER TAGS!!-->
+            <div id="searchbar">
+              <center><input type="text" placeholder="Doorzoek de lijst" id="searchinput" ng-model="stations.searchQuery"></center>
+            </div>
+            <div class="stationsList">
+                <div><!--Er zijn
+                    {{stations.allStations.length}}
+                    stations in deze array</div>
+
+                <div ng-click="stations.searchQuery='cee'">filter op cee</div>-->
+
+                <div class="stationsList-row animatedCSS" ng-class="{active:stations.currentStation==currentStation}" ng-click="stations.setStation(currentStation)" ng-repeat="currentStation in stations.allStations | filter:stations.searchQuery | orderBy:'name'">
+                    {{currentStation.name}}
+
+                </div>
+            </div>
+
+            <!--<div class="stationDetails animatedCSS" ng-if="stations.currentstation">
+                <div>De geselecteerde station is: {{stations.currentstation.name}}</div>
+                <div>Zijn/haar leeftijd is: {{stations.currentstation.age}}</div>
+            </div>-->
+
+        </div>
+       <!--<div class="footer">Gemaakt door Cees van Wanrooij en Jo&euml;l Mik</div>-->
+
+
+
+
+        <script src="data/jquery-3.0.0.min.js"></script>
+        <script src='http://maps.googleapis.com/maps/api/js?sensor=false'></script>
+        <script src="style/javascript/stations-row.js"></script>
+        <script src="node_modules/angular/angular.js"></script>
+        <script src="node_modules/angular-animate/angular-animate.js"></script>
+        <script src="lib/lodash.js"></script>
+        <script src="lib/angular-simple-logger.js"></script>
+        <script src="lib/angular-google-maps.js"></script>
+        <script src="app/app.js"></script>
+        <script src="app/services/stations.service.js"></script>
+        <script src="app/controllers/stations.controller.js"></script>
+    </body>
+</html>
